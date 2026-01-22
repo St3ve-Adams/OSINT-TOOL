@@ -30,7 +30,7 @@ export function validateMac(mac) {
 
 export function normalizeMac(mac) {
   // Remove all separators and convert to uppercase
-  return mac.replace(/[:-\.]/g, '').toUpperCase()
+  return mac.replace(/[:.\-]/g, '').toUpperCase()
 }
 
 export function formatMac(mac, separator = ':') {
