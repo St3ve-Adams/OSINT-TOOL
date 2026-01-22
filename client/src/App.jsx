@@ -3,6 +3,9 @@ import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import IpLookup from './components/IpLookup/IpLookup'
 import MacLookup from './components/MacLookup/MacLookup'
+import WhoisLookup from './components/WhoisLookup/WhoisLookup'
+import EmailValidator from './components/EmailValidator/EmailValidator'
+import UsernameSearch from './components/UsernameSearch/UsernameSearch'
 import History from './components/History/History'
 
 function App() {
@@ -14,6 +17,9 @@ function App() {
           <Route path="/" element={<IpLookup />} />
           <Route path="/ip" element={<IpLookup />} />
           <Route path="/mac" element={<MacLookup />} />
+          <Route path="/whois" element={<WhoisLookup />} />
+          <Route path="/email" element={<EmailValidator />} />
+          <Route path="/username" element={<UsernameSearch />} />
           <Route path="/history" element={<History />} />
         </Routes>
       </main>

@@ -7,6 +7,9 @@ import { globalLimiter } from './middleware/rateLimiter.js'
 import ipRoutes from './routes/ip.js'
 import macRoutes from './routes/mac.js'
 import historyRoutes from './routes/history.js'
+import whoisRoutes from './routes/whois.js'
+import emailRoutes from './routes/email.js'
+import usernameRoutes from './routes/username.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -29,6 +32,9 @@ app.use(globalLimiter)
 // API Routes
 app.use('/api/ip', ipRoutes)
 app.use('/api/mac', macRoutes)
+app.use('/api/whois', whoisRoutes)
+app.use('/api/email', emailRoutes)
+app.use('/api/username', usernameRoutes)
 app.use('/api/history', historyRoutes)
 
 // Health check
