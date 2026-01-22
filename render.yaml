@@ -2,9 +2,10 @@ services:
   # Combined service (serves both API and static frontend)
   - type: web
     name: osint-tool
-    runtime: node
+    env: node
+    plan: free
     buildCommand: npm install --prefix server && npm install --prefix client && npm run build --prefix client
-    startCommand: npm start --prefix server
+    startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -12,7 +13,5 @@ services:
         value: 10000
       - key: CORS_ORIGIN
         value: "*"
-    disk:
-      name: osint-data
-      mountPath: /var/data
-      sizeGB: 1
+      - key: DATABASE_PATH
+        value: ./data/osint.db
