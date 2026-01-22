@@ -6,6 +6,10 @@ import MacLookup from './components/MacLookup/MacLookup'
 import WhoisLookup from './components/WhoisLookup/WhoisLookup'
 import EmailValidator from './components/EmailValidator/EmailValidator'
 import UsernameSearch from './components/UsernameSearch/UsernameSearch'
+import DnsLookup from './components/DnsLookup/DnsLookup'
+import HashGenerator from './components/HashGenerator/HashGenerator'
+import HttpHeaders from './components/HttpHeaders/HttpHeaders'
+import SslChecker from './components/SslChecker/SslChecker'
 import History from './components/History/History'
 
 function App() {
@@ -20,6 +24,10 @@ function App() {
           <Route path="/whois" element={<WhoisLookup />} />
           <Route path="/email" element={<EmailValidator />} />
           <Route path="/username" element={<UsernameSearch />} />
+          <Route path="/dns" element={<DnsLookup />} />
+          <Route path="/hash" element={<HashGenerator />} />
+          <Route path="/headers" element={<HttpHeaders />} />
+          <Route path="/ssl" element={<SslChecker />} />
           <Route path="/history" element={<History />} />
         </Routes>
       </main>

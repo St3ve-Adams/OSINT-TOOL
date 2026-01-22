@@ -10,6 +10,10 @@ import historyRoutes from './routes/history.js'
 import whoisRoutes from './routes/whois.js'
 import emailRoutes from './routes/email.js'
 import usernameRoutes from './routes/username.js'
+import dnsRoutes from './routes/dns.js'
+import hashRoutes from './routes/hash.js'
+import headersRoutes from './routes/headers.js'
+import sslRoutes from './routes/ssl.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -35,6 +39,10 @@ app.use('/api/mac', macRoutes)
 app.use('/api/whois', whoisRoutes)
 app.use('/api/email', emailRoutes)
 app.use('/api/username', usernameRoutes)
+app.use('/api/dns', dnsRoutes)
+app.use('/api/hash', hashRoutes)
+app.use('/api/headers', headersRoutes)
+app.use('/api/ssl', sslRoutes)
 app.use('/api/history', historyRoutes)
 
 // Health check

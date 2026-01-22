@@ -10,6 +10,10 @@ function Header() {
     { to: '/whois', label: 'WHOIS' },
     { to: '/email', label: 'Email' },
     { to: '/username', label: 'Username' },
+    { to: '/dns', label: 'DNS' },
+    { to: '/hash', label: 'Hash' },
+    { to: '/headers', label: 'Headers' },
+    { to: '/ssl', label: 'SSL' },
     { to: '/history', label: 'History' }
   ]
 
