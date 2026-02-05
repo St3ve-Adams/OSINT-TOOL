@@ -79,10 +79,8 @@ main {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-  padding: 30px 0 50px;
+  padding: 30px 0 24px;
+  max-width: 720px;
 }
 
 .eyebrow {
@@ -103,78 +101,6 @@ main {
   color: var(--muted);
   max-width: 560px;
   margin-bottom: 26px;
-}
-
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 22px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn.primary {
-  background: linear-gradient(120deg, rgba(94, 243, 255, 0.2), rgba(138, 123, 255, 0.4));
-  box-shadow: 0 0 22px rgba(94, 243, 255, 0.2);
-}
-
-.btn.ghost {
-  background: transparent;
-  color: var(--muted);
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(94, 243, 255, 0.18);
-}
-
-.hero-panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 24px;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 20px 60px var(--shadow);
-}
-
-.panel-header {
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-  color: var(--accent);
-}
-
-.signal-list {
-  list-style: none;
-  display: grid;
-  gap: 14px;
-}
-
-.signal-list li {
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-}
-
-.signal-list strong {
-  color: var(--text);
-}
-
-.panel-footer {
-  margin-top: 18px;
-  font-size: 0.85rem;
-  color: var(--muted);
 }
 
 .search {
@@ -249,17 +175,16 @@ main {
 }
 
 .intel-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 18px 36px var(--shadow);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  background: rgba(12, 18, 36, 0.72);
+  border: 1px solid rgba(94, 243, 255, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 26px rgba(7, 14, 32, 0.65);
+  transition: border-color 0.2s ease;
 }
 
 .intel-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(94, 243, 255, 0.6);
+  border-color: rgba(94, 243, 255, 0.45);
 }
 
 .intel-card h3 {
@@ -286,32 +211,6 @@ main {
   display: block;
   color: var(--muted);
   font-size: 0.9rem;
-}
-
-.protocol {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  padding: 40px 0;
-}
-
-.protocol-card {
-  background: var(--panel-strong);
-  border-radius: 16px;
-  border: 1px solid var(--line);
-  padding: 20px;
-}
-
-.protocol-card h2 {
-  margin-bottom: 12px;
-}
-
-.protocol-card ol,
-.protocol-card ul {
-  margin-left: 18px;
-  color: var(--muted);
-  display: grid;
-  gap: 10px;
 }
 
 .footer {
