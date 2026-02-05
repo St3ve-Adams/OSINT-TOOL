@@ -260,13 +260,40 @@
         margin-bottom: 12px;
       }
 
-      .link-list {
+      .category-meta {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+
+      .tree-list {
         list-style: none;
         display: grid;
         gap: 10px;
+        margin-left: 12px;
+        padding-left: 12px;
+        border-left: 1px solid var(--line);
+      }
+
+      .tree-list.root-level {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+      }
+
+      .folder-item {
+        display: grid;
+        gap: 8px;
+      }
+
+      .folder-title {
+        font-weight: 600;
+        color: var(--text);
       }
 
       .link-item {
+        display: grid;
+        gap: 4px;
         padding-bottom: 10px;
         border-bottom: 1px solid var(--line);
       }
@@ -280,17 +307,39 @@
         font-weight: 600;
         text-decoration: none;
         color: var(--accent);
+        word-break: break-word;
       }
 
       .link-item a:hover {
         text-decoration: underline;
       }
 
-      .link-desc {
+      .link-url {
         display: block;
         color: var(--muted);
-        font-size: 0.88rem;
-        margin-top: 2px;
+        font-size: 0.85rem;
+        word-break: break-word;
+      }
+
+      .loading {
+        grid-column: 1 / -1;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        color: var(--muted);
+      }
+
+      .loading.error {
+        border-color: #fda29b;
+        color: #b42318;
+        background: #fff1f0;
+      }
+
+      .data-note {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 0.85rem;
       }
 
       .footer {
@@ -357,11 +406,11 @@
           <ul class="hero-metrics">
             <li>
               <span>Categories</span>
-              <strong>8</strong>
+              <strong id="category-count">0</strong>
             </li>
             <li>
               <span>Total links</span>
-              <strong>32</strong>
+              <strong id="total-links">0</strong>
             </li>
             <li>
               <span>Focus</span>
@@ -404,479 +453,14 @@
           <p>Each category lists open-source intelligence websites.</p>
         </div>
 
-        <div class="card-grid">
-          <article class="intel-card">
-            <h3>Network and infrastructure</h3>
-            <ul class="link-list">
-              <li
-                class="link-item"
-                data-item
-                data-name="Shodan"
-                data-tags="hosts internet network iot search"
-              >
-                <a href="https://www.shodan.io" target="_blank" rel="noreferrer">
-                  Shodan
-                </a>
-                <span class="link-desc">Search engine for exposed devices.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="Censys"
-                data-tags="certificates internet network scan"
-              >
-                <a href="https://censys.io" target="_blank" rel="noreferrer">
-                  Censys
-                </a>
-                <span class="link-desc">Hosts, certificates, and assets.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="ZoomEye"
-                data-tags="hosts network scan search"
-              >
-                <a href="https://www.zoomeye.org" target="_blank" rel="noreferrer">
-                  ZoomEye
-                </a>
-                <span class="link-desc">Cyberspace search platform.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="ONYPHE"
-                data-tags="network scan infrastructure threat"
-              >
-                <a href="https://www.onyphe.io" target="_blank" rel="noreferrer">
-                  ONYPHE
-                </a>
-                <span class="link-desc">Open data for network visibility.</span>
-              </li>
-            </ul>
-          </article>
-
-          <article class="intel-card">
-            <h3>Domains and DNS</h3>
-            <ul class="link-list">
-              <li
-                class="link-item"
-                data-item
-                data-name="crt.sh"
-                data-tags="certificates domain tls"
-              >
-                <a href="https://crt.sh" target="_blank" rel="noreferrer">
-                  crt.sh
-                </a>
-                <span class="link-desc">Certificate transparency search.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="SecurityTrails"
-                data-tags="domain dns history"
-              >
-                <a
-                  href="https://securitytrails.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  SecurityTrails
-                </a>
-                <span class="link-desc">DNS, domains, and IP data.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="WHOIS"
-                data-tags="domain whois registration"
-              >
-                <a href="https://who.is" target="_blank" rel="noreferrer">
-                  WHOIS
-                </a>
-                <span class="link-desc">Domain registration details.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="ViewDNS"
-                data-tags="domain dns lookup"
-              >
-                <a href="https://viewdns.info" target="_blank" rel="noreferrer">
-                  ViewDNS
-                </a>
-                <span class="link-desc">DNS tools and reverse lookups.</span>
-              </li>
-            </ul>
-          </article>
-
-          <article class="intel-card">
-            <h3>People and identity</h3>
-            <ul class="link-list">
-              <li
-                class="link-item"
-                data-item
-                data-name="Have I Been Pwned"
-                data-tags="breach email identity leaks"
-              >
-                <a
-                  href="https://haveibeenpwned.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Have I Been Pwned
-                </a>
-                <span class="link-desc">Breach exposure checks.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="Hunter"
-                data-tags="email finder identity"
-              >
-                <a href="https://hunter.io" target="_blank" rel="noreferrer">
-                  Hunter.io
-                </a>
-                <span class="link-desc">Email discovery and verification.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="Thats Them"
-                data-tags="people search identity"
-              >
-                <a href="https://thatsthem.com" target="_blank" rel="noreferrer">
-                  ThatsThem
-                </a>
-                <span class="link-desc">People search and contact data.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="Social Searcher"
-                data-tags="social media monitoring"
-              >
-                <a
-                  href="https://www.social-searcher.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Social Searcher
-                </a>
-                <span class="link-desc">Track keywords across networks.</span>
-              </li>
-            </ul>
-          </article>
-
-          <article class="intel-card">
-            <h3>Business intelligence</h3>
-            <ul class="link-list">
-              <li
-                class="link-item"
-                data-item
-                data-name="OpenCorporates"
-                data-tags="company registry business"
-              >
-                <a
-                  href="https://opencorporates.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  OpenCorporates
-                </a>
-                <span class="link-desc">Global corporate registry data.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="Crunchbase"
-                data-tags="company startup funding"
-              >
-                <a
-                  href="https://www.crunchbase.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Crunchbase
-                </a>
-                <span class="link-desc">Startup and investment signals.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="BuiltWith"
-                data-tags="technology stack web"
-              >
-                <a href="https://builtwith.com" target="_blank" rel="noreferrer">
-                  BuiltWith
-                </a>
-                <span class="link-desc">Technology stack profiler.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="EDGAR"
-                data-tags="sec filings company"
-              >
-                <a
-                  href="https://www.sec.gov/edgar"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  EDGAR
-                </a>
-                <span class="link-desc">US public company filings.</span>
-              </li>
-            </ul>
-          </article>
-
-          <article class="intel-card">
-            <h3>Geospatial intelligence</h3>
-            <ul class="link-list">
-              <li
-                class="link-item"
-                data-item
-                data-name="Sentinel Hub"
-                data-tags="satellite imagery geospatial"
-              >
-                <a
-                  href="https://www.sentinel-hub.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Sentinel Hub
-                </a>
-                <span class="link-desc">Access open satellite imagery.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="USGS EarthExplorer"
-                data-tags="satellite imagery maps"
-              >
-                <a
-                  href="https://earthexplorer.usgs.gov"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  USGS EarthExplorer
-                </a>
-                <span class="link-desc">Earth observation archives.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="Global Forest Watch"
-                data-tags="environment maps geospatial"
-              >
-                <a
-                  href="https://www.globalforestwatch.org"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Global Forest Watch
-                </a>
-                <span class="link-desc">Environmental change monitoring.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="OpenStreetMap"
-                data-tags="maps geospatial"
-              >
-                <a
-                  href="https://www.openstreetmap.org"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  OpenStreetMap
-                </a>
-                <span class="link-desc">Collaborative mapping platform.</span>
-              </li>
-            </ul>
-          </article>
-
-          <article class="intel-card">
-            <h3>Threat and malware</h3>
-            <ul class="link-list">
-              <li
-                class="link-item"
-                data-item
-                data-name="VirusTotal"
-                data-tags="malware file analysis"
-              >
-                <a href="https://www.virustotal.com" target="_blank" rel="noreferrer">
-                  VirusTotal
-                </a>
-                <span class="link-desc">Analyze files and URLs.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="AbuseIPDB"
-                data-tags="ip reputation abuse"
-              >
-                <a href="https://www.abuseipdb.com" target="_blank" rel="noreferrer">
-                  AbuseIPDB
-                </a>
-                <span class="link-desc">IP reputation and reports.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="MalwareBazaar"
-                data-tags="malware samples"
-              >
-                <a
-                  href="https://bazaar.abuse.ch"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  MalwareBazaar
-                </a>
-                <span class="link-desc">Community malware samples.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="AlienVault OTX"
-                data-tags="threat intel indicators"
-              >
-                <a
-                  href="https://otx.alienvault.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  AlienVault OTX
-                </a>
-                <span class="link-desc">Open threat exchange pulses.</span>
-              </li>
-            </ul>
-          </article>
-
-          <article class="intel-card">
-            <h3>Media and archives</h3>
-            <ul class="link-list">
-              <li
-                class="link-item"
-                data-item
-                data-name="Wayback Machine"
-                data-tags="web archive history"
-              >
-                <a
-                  href="https://web.archive.org"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Wayback Machine
-                </a>
-                <span class="link-desc">Historical snapshots of websites.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="Google News"
-                data-tags="news media search"
-              >
-                <a href="https://news.google.com" target="_blank" rel="noreferrer">
-                  Google News
-                </a>
-                <span class="link-desc">News monitoring and alerts.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="GDELT"
-                data-tags="events media database"
-              >
-                <a href="https://www.gdeltproject.org" target="_blank" rel="noreferrer">
-                  GDELT Project
-                </a>
-                <span class="link-desc">Global event and media data.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="InVID"
-                data-tags="video verification media"
-              >
-                <a
-                  href="https://www.invid-project.eu"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  InVID
-                </a>
-                <span class="link-desc">Video verification toolkit.</span>
-              </li>
-            </ul>
-          </article>
-
-          <article class="intel-card">
-            <h3>OSINT frameworks</h3>
-            <ul class="link-list">
-              <li
-                class="link-item"
-                data-item
-                data-name="OSINT Framework"
-                data-tags="framework tools directory"
-              >
-                <a
-                  href="https://osintframework.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  OSINT Framework
-                </a>
-                <span class="link-desc">Comprehensive OSINT tool map.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="Bellingcat Toolkit"
-                data-tags="investigation guides"
-              >
-                <a
-                  href="https://www.bellingcat.com/resources/how-tos"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Bellingcat Toolkit
-                </a>
-                <span class="link-desc">Guides for open investigations.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="IntelTechniques"
-                data-tags="tools guides osint"
-              >
-                <a
-                  href="https://inteltechniques.com/tools"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  IntelTechniques
-                </a>
-                <span class="link-desc">Search tools and training.</span>
-              </li>
-              <li
-                class="link-item"
-                data-item
-                data-name="OSINT Combine"
-                data-tags="community training"
-              >
-                <a
-                  href="https://www.osintcombine.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  OSINT Combine
-                </a>
-                <span class="link-desc">Community training and resources.</span>
-              </li>
-            </ul>
-          </article>
+        <div class="card-grid" id="category-grid">
+          <div class="loading" id="data-status">
+            Loading OSINT Framework links...
+          </div>
         </div>
+        <p class="data-note">
+          Source dataset: OSINT Framework (osintframework.com)
+        </p>
       </section>
     </main>
 
@@ -895,9 +479,26 @@
 
     <script>
       (() => {
+        const dataUrl =
+          "https://raw.githubusercontent.com/lockfale/OSINT-Framework/master/public/arf.json";
+        const categoryGrid = document.getElementById("category-grid");
         const filterInput = document.getElementById("filter");
-        const items = Array.from(document.querySelectorAll("[data-item]"));
         const resultCount = document.getElementById("result-count");
+        const totalLinksEl = document.getElementById("total-links");
+        const categoryCountEl = document.getElementById("category-count");
+        const statusEl = document.getElementById("data-status");
+
+        let allLinkItems = [];
+        let folderItems = [];
+        let categoryCards = [];
+
+        const setStatus = (message, isError = false) => {
+          if (!statusEl) {
+            return;
+          }
+          statusEl.textContent = message;
+          statusEl.classList.toggle("error", isError);
+        };
 
         const updateCount = (count) => {
           if (resultCount) {
@@ -905,11 +506,123 @@
           }
         };
 
+        const getDomain = (url) => {
+          try {
+            return new URL(url).hostname.replace(/^www\\./, "");
+          } catch (error) {
+            return url;
+          }
+        };
+
+        const countLinks = (node) => {
+          let count = 0;
+          if (node && node.url) {
+            count += 1;
+          }
+          (node.children || []).forEach((child) => {
+            count += countLinks(child);
+          });
+          return count;
+        };
+
+        const buildLinkItem = (node, path) => {
+          const li = document.createElement("li");
+          li.className = "link-item";
+          li.setAttribute("data-item", "");
+          li.dataset.name = node.name || "OSINT link";
+          const tags = path.concat(node.name || "").filter(Boolean).join(" ");
+          li.dataset.tags = `${tags} ${node.url || ""}`.trim();
+
+          const link = document.createElement("a");
+          link.href = node.url;
+          link.target = "_blank";
+          link.rel = "noreferrer";
+          link.textContent = node.name || node.url;
+
+          const urlSpan = document.createElement("span");
+          urlSpan.className = "link-url";
+          urlSpan.textContent = getDomain(node.url);
+
+          li.append(link, urlSpan);
+          allLinkItems.push(li);
+          return li;
+        };
+
+        const buildNode = (node, path) => {
+          if (!node) {
+            return null;
+          }
+          const nextPath = path.concat(node.name || "");
+          const children = Array.isArray(node.children) ? node.children : [];
+
+          if (children.length > 0) {
+            const li = document.createElement("li");
+            li.className = "folder-item";
+
+            const title = document.createElement("div");
+            title.className = "folder-title";
+            title.textContent = node.name || "Category";
+
+            const list = document.createElement("ul");
+            list.className = "tree-list";
+
+            children.forEach((child) => {
+              const childEl = buildNode(child, nextPath);
+              if (childEl) {
+                list.appendChild(childEl);
+              }
+            });
+
+            if (node.url) {
+              list.prepend(buildLinkItem(node, path));
+            }
+
+            if (!list.children.length) {
+              return null;
+            }
+
+            li.append(title, list);
+            folderItems.push(li);
+            return li;
+          }
+
+          if (node.url) {
+            return buildLinkItem(node, path);
+          }
+
+          return null;
+        };
+
+        const buildCategoryCard = (category) => {
+          const card = document.createElement("article");
+          card.className = "intel-card";
+
+          const heading = document.createElement("h3");
+          heading.textContent = category.name || "Category";
+
+          const meta = document.createElement("div");
+          meta.className = "category-meta";
+          meta.textContent = `${countLinks(category)} links`;
+
+          const list = document.createElement("ul");
+          list.className = "tree-list root-level";
+          (category.children || []).forEach((child) => {
+            const childEl = buildNode(child, [category.name || ""]);
+            if (childEl) {
+              list.appendChild(childEl);
+            }
+          });
+
+          card.append(heading, meta, list);
+          categoryCards.push(card);
+          return card;
+        };
+
         const applyFilter = () => {
           const term = filterInput ? filterInput.value.trim().toLowerCase() : "";
           let visible = 0;
 
-          items.forEach((item) => {
+          allLinkItems.forEach((item) => {
             const name = item.dataset.name || "";
             const tags = item.dataset.tags || "";
             const haystack = `${name} ${tags}`.toLowerCase();
@@ -920,14 +633,69 @@
             }
           });
 
+          folderItems.forEach((folder) => {
+            const hasVisibleLink = folder.querySelector(
+              ".link-item:not([hidden])"
+            );
+            const hasVisibleFolder = folder.querySelector(
+              ".folder-item:not([hidden])"
+            );
+            folder.hidden = !(hasVisibleLink || hasVisibleFolder);
+          });
+
+          categoryCards.forEach((card) => {
+            const hasVisibleLink = card.querySelector(
+              ".link-item:not([hidden])"
+            );
+            card.hidden = !hasVisibleLink;
+          });
+
           updateCount(visible);
+        };
+
+        const render = (data) => {
+          const categories = (data && data.children) || [];
+          categoryGrid.innerHTML = "";
+          allLinkItems = [];
+          folderItems = [];
+          categoryCards = [];
+
+          categories.forEach((category) => {
+            categoryGrid.appendChild(buildCategoryCard(category));
+          });
+
+          if (categoryCountEl) {
+            categoryCountEl.textContent = String(categories.length);
+          }
+
+          if (totalLinksEl) {
+            totalLinksEl.textContent = String(allLinkItems.length);
+          }
+
+          applyFilter();
         };
 
         if (filterInput) {
           filterInput.addEventListener("input", applyFilter);
         }
 
-        applyFilter();
+        fetch(dataUrl, { cache: "force-cache" })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Request failed: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            render(data);
+          })
+          .catch((error) => {
+            console.error(error);
+            setStatus(
+              "Unable to load the OSINT Framework dataset. Please refresh.",
+              true
+            );
+          });
       })();
     </script>
   </body>
