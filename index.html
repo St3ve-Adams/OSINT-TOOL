@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Future Tech Intelligence OSINT Atlas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <header class="top-bar">
+      <div class="logo">FTI-OSINT</div>
+      <nav class="top-nav">
+        <a href="#sources">Sources</a>
+        <a href="#search">Filter</a>
+        <a href="#protocol">Protocol</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Future Tech Intelligence</p>
+          <h1>Open Source Intelligence Atlas</h1>
+          <p class="lead">
+            A curated constellation of OSINT links for analysts, researchers,
+            and defenders. Navigate signals across the open web with a single
+            interface.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#sources">Enter the grid</a>
+            <a class="btn ghost" href="#protocol">Usage protocol</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="panel-header">Live Signal Pulse</div>
+          <ul class="signal-list">
+            <li>
+              <span>Source nodes</span>
+              <strong>68</strong>
+            </li>
+            <li>
+              <span>Active categories</span>
+              <strong>8</strong>
+            </li>
+            <li>
+              <span>Verification layers</span>
+              <strong>4</strong>
+            </li>
+            <li>
+              <span>Response time</span>
+              <strong>0.38s</strong>
+            </li>
+          </ul>
+          <div class="panel-footer">
+            Signal updated every cycle. Validate sources before action.
+          </div>
+        </div>
+      </section>
+
+      <section id="search" class="search">
+        <div class="search-header">
+          <h2>Filter the atlas</h2>
+          <p>
+            Type a keyword to isolate sources by platform, capability, or
+            data type.
+          </p>
+        </div>
+        <div class="search-box">
+          <label for="filter">Signal query</label>
+          <input
+            id="filter"
+            type="search"
+            placeholder="Try: breach, domain, satellite, people"
+            autocomplete="off"
+          />
+          <div class="search-meta">
+            <span>Visible sources:</span>
+            <strong id="result-count">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="sources" class="sources">
+        <div class="section-title">
+          <h2>OSINT source sectors</h2>
+          <p>Each node links to an external, open-source intelligence resource.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="intel-card">
+            <h3>Network and infrastructure</h3>
+            <ul class="link-list">
+              <li
+                class="link-item"
+                data-item
+                data-name="Shodan"
+                data-tags="hosts internet network iot search"
+              >
+                <a href="https://www.shodan.io" target="_blank" rel="noreferrer">
+                  Shodan
+                </a>
+                <span class="link-desc">Search engine for exposed devices.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="Censys"
+                data-tags="certificates internet network scan"
+              >
+                <a href="https://censys.io" target="_blank" rel="noreferrer">
+                  Censys
+                </a>
+                <span class="link-desc">Hosts, certificates, and assets.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="ZoomEye"
+                data-tags="hosts network scan search"
+              >
+                <a href="https://www.zoomeye.org" target="_blank" rel="noreferrer">
+                  ZoomEye
+                </a>
+                <span class="link-desc">Cyberspace search platform.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="ONYPHE"
+                data-tags="network scan infrastructure threat"
+              >
+                <a href="https://www.onyphe.io" target="_blank" rel="noreferrer">
+                  ONYPHE
+                </a>
+                <span class="link-desc">Open data for network visibility.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="intel-card">
+            <h3>Domains and DNS</h3>
+            <ul class="link-list">
+              <li
+                class="link-item"
+                data-item
+                data-name="crt.sh"
+                data-tags="certificates domain tls"
+              >
+                <a href="https://crt.sh" target="_blank" rel="noreferrer">
+                  crt.sh
+                </a>
+                <span class="link-desc">Certificate transparency search.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="SecurityTrails"
+                data-tags="domain dns history"
+              >
+                <a
+                  href="https://securitytrails.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  SecurityTrails
+                </a>
+                <span class="link-desc">DNS, domains, and IP data.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="WHOIS"
+                data-tags="domain whois registration"
+              >
+                <a href="https://who.is" target="_blank" rel="noreferrer">
+                  WHOIS
+                </a>
+                <span class="link-desc">Domain registration details.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="ViewDNS"
+                data-tags="domain dns lookup"
+              >
+                <a href="https://viewdns.info" target="_blank" rel="noreferrer">
+                  ViewDNS
+                </a>
+                <span class="link-desc">DNS tools and reverse lookups.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="intel-card">
+            <h3>People and identity</h3>
+            <ul class="link-list">
+              <li
+                class="link-item"
+                data-item
+                data-name="Have I Been Pwned"
+                data-tags="breach email identity leaks"
+              >
+                <a
+                  href="https://haveibeenpwned.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Have I Been Pwned
+                </a>
+                <span class="link-desc">Breach exposure checks.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="Hunter"
+                data-tags="email finder identity"
+              >
+                <a href="https://hunter.io" target="_blank" rel="noreferrer">
+                  Hunter.io
+                </a>
+                <span class="link-desc">Email discovery and verification.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="Thats Them"
+                data-tags="people search identity"
+              >
+                <a href="https://thatsthem.com" target="_blank" rel="noreferrer">
+                  ThatsThem
+                </a>
+                <span class="link-desc">People search and contact data.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="Social Searcher"
+                data-tags="social media monitoring"
+              >
+                <a
+                  href="https://www.social-searcher.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Social Searcher
+                </a>
+                <span class="link-desc">Track keywords across networks.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="intel-card">
+            <h3>Business intelligence</h3>
+            <ul class="link-list">
+              <li
+                class="link-item"
+                data-item
+                data-name="OpenCorporates"
+                data-tags="company registry business"
+              >
+                <a
+                  href="https://opencorporates.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  OpenCorporates
+                </a>
+                <span class="link-desc">Global corporate registry data.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="Crunchbase"
+                data-tags="company startup funding"
+              >
+                <a
+                  href="https://www.crunchbase.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Crunchbase
+                </a>
+                <span class="link-desc">Startup and investment signals.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="BuiltWith"
+                data-tags="technology stack web"
+              >
+                <a href="https://builtwith.com" target="_blank" rel="noreferrer">
+                  BuiltWith
+                </a>
+                <span class="link-desc">Technology stack profiler.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="EDGAR"
+                data-tags="sec filings company"
+              >
+                <a
+                  href="https://www.sec.gov/edgar"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  EDGAR
+                </a>
+                <span class="link-desc">US public company filings.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="intel-card">
+            <h3>Geospatial intelligence</h3>
+            <ul class="link-list">
+              <li
+                class="link-item"
+                data-item
+                data-name="Sentinel Hub"
+                data-tags="satellite imagery geospatial"
+              >
+                <a
+                  href="https://www.sentinel-hub.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Sentinel Hub
+                </a>
+                <span class="link-desc">Access open satellite imagery.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="USGS EarthExplorer"
+                data-tags="satellite imagery maps"
+              >
+                <a
+                  href="https://earthexplorer.usgs.gov"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  USGS EarthExplorer
+                </a>
+                <span class="link-desc">Earth observation archives.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="Global Forest Watch"
+                data-tags="environment maps geospatial"
+              >
+                <a
+                  href="https://www.globalforestwatch.org"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Global Forest Watch
+                </a>
+                <span class="link-desc">Environmental change monitoring.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="OpenStreetMap"
+                data-tags="maps geospatial"
+              >
+                <a
+                  href="https://www.openstreetmap.org"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  OpenStreetMap
+                </a>
+                <span class="link-desc">Collaborative mapping platform.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="intel-card">
+            <h3>Threat and malware</h3>
+            <ul class="link-list">
+              <li
+                class="link-item"
+                data-item
+                data-name="VirusTotal"
+                data-tags="malware file analysis"
+              >
+                <a href="https://www.virustotal.com" target="_blank" rel="noreferrer">
+                  VirusTotal
+                </a>
+                <span class="link-desc">Analyze files and URLs.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="AbuseIPDB"
+                data-tags="ip reputation abuse"
+              >
+                <a href="https://www.abuseipdb.com" target="_blank" rel="noreferrer">
+                  AbuseIPDB
+                </a>
+                <span class="link-desc">IP reputation and reports.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="MalwareBazaar"
+                data-tags="malware samples"
+              >
+                <a
+                  href="https://bazaar.abuse.ch"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  MalwareBazaar
+                </a>
+                <span class="link-desc">Community malware samples.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="AlienVault OTX"
+                data-tags="threat intel indicators"
+              >
+                <a
+                  href="https://otx.alienvault.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  AlienVault OTX
+                </a>
+                <span class="link-desc">Open threat exchange pulses.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="intel-card">
+            <h3>Media and archives</h3>
+            <ul class="link-list">
+              <li
+                class="link-item"
+                data-item
+                data-name="Wayback Machine"
+                data-tags="web archive history"
+              >
+                <a
+                  href="https://web.archive.org"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Wayback Machine
+                </a>
+                <span class="link-desc">Historical snapshots of websites.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="Google News"
+                data-tags="news media search"
+              >
+                <a href="https://news.google.com" target="_blank" rel="noreferrer">
+                  Google News
+                </a>
+                <span class="link-desc">News monitoring and alerts.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="GDELT"
+                data-tags="events media database"
+              >
+                <a href="https://www.gdeltproject.org" target="_blank" rel="noreferrer">
+                  GDELT Project
+                </a>
+                <span class="link-desc">Global event and media data.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="InVID"
+                data-tags="video verification media"
+              >
+                <a
+                  href="https://www.invid-project.eu"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  InVID
+                </a>
+                <span class="link-desc">Video verification toolkit.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="intel-card">
+            <h3>OSINT frameworks</h3>
+            <ul class="link-list">
+              <li
+                class="link-item"
+                data-item
+                data-name="OSINT Framework"
+                data-tags="framework tools directory"
+              >
+                <a
+                  href="https://osintframework.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  OSINT Framework
+                </a>
+                <span class="link-desc">Comprehensive OSINT tool map.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="Bellingcat Toolkit"
+                data-tags="investigation guides"
+              >
+                <a
+                  href="https://www.bellingcat.com/resources/how-tos"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Bellingcat Toolkit
+                </a>
+                <span class="link-desc">Guides for open investigations.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="IntelTechniques"
+                data-tags="tools guides osint"
+              >
+                <a
+                  href="https://inteltechniques.com/tools"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  IntelTechniques
+                </a>
+                <span class="link-desc">Search tools and training.</span>
+              </li>
+              <li
+                class="link-item"
+                data-item
+                data-name="OSINT Combine"
+                data-tags="community training"
+              >
+                <a
+                  href="https://www.osintcombine.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  OSINT Combine
+                </a>
+                <span class="link-desc">Community training and resources.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="protocol" class="protocol">
+        <div class="protocol-card">
+          <h2>Usage protocol</h2>
+          <ol>
+            <li>Verify data across multiple sources before action.</li>
+            <li>Document timestamps and provenance for every artifact.</li>
+            <li>Respect privacy, consent, and local legal boundaries.</li>
+            <li>Use open intelligence to reduce uncertainty, not amplify it.</li>
+          </ol>
+        </div>
+        <div class="protocol-card">
+          <h2>Operational modes</h2>
+          <ul>
+            <li>Recon: map assets and exposure.</li>
+            <li>Attribution: triangulate identity signals.</li>
+            <li>Verification: cross-check narratives.</li>
+            <li>Threat intel: monitor indicators and trends.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>Future Tech Intelligence</strong>
+        <span>OSINT Atlas</span>
+      </div>
+      <p>
+        Links point to third-party resources. Use responsibly and comply with
+        applicable laws.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
